@@ -1,4 +1,4 @@
-import { Web3ReactProvider, useWeb3React, UnsupportedChainIdError } from '@web3-react/core'
+import { useWeb3React } from '@web3-react/core'
 
 const Account = () => {
   const { account } = useWeb3React()

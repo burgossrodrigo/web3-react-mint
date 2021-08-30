@@ -26,6 +26,7 @@ import {
   torus
 } from '../connectors'
 import { Spinner } from './Spinner'
+import { Button } from '@material-ui/core'
 
 
 
@@ -49,18 +50,10 @@ export default function Wallet({openWallets}) {
 
 const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Injected]: injected,
-  [ConnectorNames.Network]: network,
   [ConnectorNames.WalletConnect]: walletconnect,
   [ConnectorNames.WalletLink]: walletlink,
-  [ConnectorNames.Ledger]: ledger,
-  [ConnectorNames.Trezor]: trezor,
-  [ConnectorNames.Lattice]: lattice,
-  [ConnectorNames.Frame]: frame,
   [ConnectorNames.Authereum]: authereum,
   [ConnectorNames.Fortmatic]: fortmatic,
-  [ConnectorNames.Magic]: magic,
-  [ConnectorNames.Portis]: portis,
-  [ConnectorNames.Torus]: torus
 }
 
 function getErrorMessage(error: Error) {
@@ -109,7 +102,7 @@ return (
       style={{
         display: 'grid',
         gridGap: '1rem',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '1fr',
         maxWidth: '20rem',
         margin: 'auto'
       }}
@@ -121,7 +114,7 @@ return (
         const disabled = !triedEager || !!activatingConnector || connected || !!error
 
         return (
-          <button
+          <Button
             style={{
               height: '3rem',
               borderRadius: '1rem',
@@ -135,6 +128,7 @@ return (
               setActivatingConnector(currentConnector)
               activate(connectorsByName[name])
             }}
+            variant={"contained"}
           >
             <div
               style={{
@@ -156,7 +150,7 @@ return (
               )}
             </div>
             {name}
-          </button>
+          </Button>
         )
       })}
     </div>

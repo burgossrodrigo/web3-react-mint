@@ -33,7 +33,7 @@ export const walletconnect = new WalletConnectConnector({
 export const walletlink = new WalletLinkConnector({
   url: RPC_URLS[1],
   appName: 'web3-react example',
-  supportedChainIds: [1, 3, 4, 5, 42, 10, 137, 69, 420, 80001]
+  supportedChainIds: [1, 3, 4, 5, 42, 10, 137, 250, 69, 56, 420, 80001]
 })
 
 export const ledger = new LedgerConnector({ chainId: 1, url: RPC_URLS[1], pollingInterval: POLLING_INTERVAL })
