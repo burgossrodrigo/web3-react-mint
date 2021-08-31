@@ -28,5 +28,8 @@
     "react": ">=16.8",
     "react-dom": ">=16.8",
     "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
