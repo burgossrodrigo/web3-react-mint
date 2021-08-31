@@ -68,8 +68,21 @@ export default function() {
       [theme.breakpoints.only('xs')]:{}
 
 
-    }
-  
+    },
+
+    mintButton: {
+
+      [theme.breakpoints.between('sm', 'xl')]:{
+
+          marginTop: '25vw',
+
+      },
+      [theme.breakpoints.only('xs')]:{}
+
+
+    }    
+
+
   }));
   
   const classes = useStyle();
@@ -78,28 +91,18 @@ export default function() {
   return (<>
     <Web3ReactProvider getLibrary={getLibrary}>
       <Header />
-    <Container maxWidth="md">  
-    <Grid container spacing={3} style={{width: '80%', marginLeft: '5%', marginTop: '15vh'}}>
-      <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{marginBottom: '15vh'}}>
-      { active === true ? 
-        <Button variant="contained" size="large" color="primary">
-            <Typography style={{color: 'white', alignSelf: 'center'}}>
-              Mint
-            </Typography>
-        </Button>
+      <Container maxWidth="md">  
+      <Grid container spacing={3} style={{width: '80%', marginLeft: '5%', marginTop: '15vh'}}>
+        <Grid item xs={6} sm={6} md={6} lg={6} xl={6} style={{marginBottom: '15vh'}}>
 
-        :
-
-        <Button variant="contained" size="large" color="primary">
-          <SideDrawer>
-            <Typography style={{color: 'white', alignSelf: 'center'}}>
-              Connect
-            </Typography>
-          </SideDrawer>
-        </Button>}
+          <Button variant="contained" size="large" color="primary" className={classes.mintButton}>
+              <Typography >
+                Mint
+              </Typography>
+          </Button>
+        </Grid>
       </Grid>
-    </Grid>
-    </Container>
+      </Container>
     </Web3ReactProvider>
 
       

@@ -4,6 +4,7 @@ import { AppBar, Badge, Box, IconButton } from '@material-ui/core'
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import SideDrawer from './SideDrawer';
 
 
 
@@ -89,15 +90,16 @@ const useStyle = makeStyles((theme) => ({
 
   return (
     <>
-    <AppBar style={{display: 'flex', flexGrow: '1', flexDirection: 'row'}}>
-	  
-	  <Box style={{ margin: '1rem', textAlign: 'right', float: 'right' }}>{active ? <Badge color="primary" className={classes.margin} variant="dot"><AccountBalanceWalletIcon fontSize='large' /></Badge> : error ? <Badge color="error" className={classes.margin} variant="dot"><AccountBalanceWalletIcon fontSize='large' /></Badge> : <AccountBalanceWalletIcon fontSize='large' />}</Box>
-      <Typography variant='h5' style={{position: 'relative', float: 'right', height: 'min-content', border: '1px solid', borderRadius: '10px', padding: '0.3em', marginTop: '2vh'}} >
+    <AppBar style={{display: 'flex', flexGrow: '1', flexDirection: 'row', height: '12vh'}}>
+	  <SideDrawer>
+	  	<IconButton>
+			  {active ? <Badge color="primary" className={classes.margin} variant="dot"><AccountBalanceWalletIcon fontSize='large' color="secundary" /></Badge> : error ? <Badge color="error" className={classes.margin} variant="dot"><AccountBalanceWalletIcon color="secundary" fontSize='large' /></Badge> : <AccountBalanceWalletIcon fontSize='large' color="secundary" />}
+		</IconButton>
+	  </SideDrawer>
+	  <Typography variant='h5' style={{position: 'relative', marginLeft: '75%', height: 'min-content', border: '1px solid', borderRadius: '10px', padding: '0.3em', marginTop: '2vh'}} >
 		{active ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}` : 'No wallet connected'}
 	  </Typography>			
-	  	
-	 
-	 </AppBar> 
+	</AppBar> 
     </>
   )
 }
